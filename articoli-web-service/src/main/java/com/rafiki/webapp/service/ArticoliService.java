@@ -5,6 +5,7 @@ import com.rafiki.webapp.entity.Articoli;
 import java.util.List;
 
 public interface ArticoliService {
+
     public List<Articoli> selTutti();
 
     public Articoli cercaArticolo(int idarticolo);
