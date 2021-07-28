@@ -1,12 +1,13 @@
 package com.rafiki.service;
 
 import com.rafiki.Application;
-import com.rafiki.webapp.entity.Articoli;
+import static org.junit.Assert.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
+import com.rafiki.webapp.entity.Articoli;
 import com.rafiki.webapp.entity.Categorie;
 import com.rafiki.webapp.entity.Pagine;
 import com.rafiki.webapp.entity.Siti;
-import com.rafiki.webapp.service.ArticoliService;
+import com.rafiki.webapp.service.SitiService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,11 @@ import java.util.Set;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Application.class)
 @SpringBootTest
-public class ArticoliServiceTest {
+public class SitiServiceTest {
     @Autowired
-    private ArticoliService articoliService;
+    private SitiService sitiService;
 
-    private Articoli createArticolo(){
+    private Siti createSito(){
         Articoli articolo = new Articoli();
         Siti sito = new Siti();
         Categorie categorie = new Categorie();
@@ -66,20 +67,31 @@ public class ArticoliServiceTest {
         articolo.setPagine(list_pagine);
         sito.setArticoli(list_articoli);
 
-        return articolo;
+        return sito;
     }
 
     @Test
-    public void TestaggiungiArticolo(){
-        Articoli articolo = this.createArticolo();
-
-        articoliService.aggiungiArticolo(articolo);
+    public void TestaggiungiSito(){
+        Siti sito = this.createSito();
+        sitiService.aggiungiSito(sito);
     }
 
-   @Test
+    @Test
     public void TestselTutti(){
-       assertThat(articoliService.selTutti()).extracting(Articoli::getIdarticolo)
-           .containsOnly(0);
+        List<Siti> items = sitiService.selTutti();
+        assertEquals(1, items.size());
     }
+
+    @Test
+    public void TestcercaSito(){
+        assertThat(sitiService.cercaSito(0)).extracting(Siti::getNome).as("Home");
+    }
+
+    @Test
+    public void TestcercaArticoli(){
+        List<Articoli> items =  sitiService.cercaArticoli(0);
+        assertEquals(1, items.size());
+    }
+
 
 }
