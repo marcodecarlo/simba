@@ -21,6 +21,11 @@ public class SitiServiceImpl implements SitiService{
     }
 
     @Override
+    public void aggiungiSito(Siti sito) {
+        sitiRepository.save(sito);
+    }
+
+    @Override
     public Siti cercaSito(int idsito) {
         return sitiRepository.findBySito(idsito);
     }

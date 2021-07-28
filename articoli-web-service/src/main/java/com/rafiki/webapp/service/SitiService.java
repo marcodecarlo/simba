@@ -9,6 +9,8 @@ public interface SitiService {
 
     public List<Siti> selTutti();
 
+    public void aggiungiSito(Siti sito);
+
     public Siti cercaSito(int idsito);
 
     public List<Articoli> cercaArticoli(int idsito);
