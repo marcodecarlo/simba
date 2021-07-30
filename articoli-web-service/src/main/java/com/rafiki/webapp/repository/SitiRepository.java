@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface SitiRepository extends PagingAndSortingRepository<Siti, String> {
 
-    Siti findBySito(@Param("idsito") int idsito);
+    Siti findByIdsito(@Param("idsito") int idsito);
 
     @Query(value = "SELECT * FROM SITI INNER JOIN ARTICOLI USING(IDSITO) WHERE IDSITO = :idsito", nativeQuery = true)
     List<Articoli> findSitoByArticoli(@Param("idsito") int idsito);

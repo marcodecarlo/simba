@@ -27,7 +27,7 @@ public class SitiServiceImpl implements SitiService{
 
     @Override
     public Siti cercaSito(int idsito) {
-        return sitiRepository.findBySito(idsito);
+        return sitiRepository.findByIdsito(idsito);
     }
 
     @Override
