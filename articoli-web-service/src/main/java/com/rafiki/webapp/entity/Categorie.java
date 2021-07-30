@@ -42,22 +42,22 @@ public class Categorie implements Serializable {
     @Column(name = "ABBREVIAZIONE")
     private String abbreviazione;
 //forse JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "categorie", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "categoria", orphanRemoval = true)
     @JsonManagedReference
     private Set<CategorieRecord> categorieRecord = new HashSet<CategorieRecord>();
 
-    @ManyToMany(mappedBy = "articoli")
+    @ManyToMany(mappedBy = "categorie")
     @JsonBackReference
     private List<Articoli> articoli = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "categorie", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "sottocategoria", orphanRemoval = true)
     @JsonIgnore
     private Set<Categorie> categories = new HashSet<Categorie>();
 
     //  @NotNull(message = "{NotNull.Articoli.sito.Validation}")
     @ManyToOne
     @EqualsAndHashCode.Exclude
-    @JoinColumn(name = "IDSOTTOCATEGORIA", referencedColumnName = "idsottocategoria")
+    @JoinColumn(name = "IDSOTTOCATEGORIA")
     @JsonBackReference
     private Categorie sottocategoria;
 
