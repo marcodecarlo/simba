@@ -50,7 +50,7 @@ public class Pagine implements Serializable {
     @JsonBackReference
     private Articoli articolo;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pagine", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pagina", orphanRemoval = true)
     @JsonManagedReference
     private Set<PagineRecord> pagineRecord = new HashSet<PagineRecord>();
 

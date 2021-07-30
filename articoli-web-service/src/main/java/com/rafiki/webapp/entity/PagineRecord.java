@@ -43,7 +43,7 @@ public class PagineRecord implements Serializable {
     //  @NotNull(message = "{NotNull.Articoli.sito.Validation}")
     @ManyToOne
     @EqualsAndHashCode.Exclude
-    @JoinColumn(name = "IDPAGINE", referencedColumnName = "idpagine")
+    @JoinColumn(name = "IDPAGINA", referencedColumnName = "idpagina")
     @JsonBackReference
     private Pagine pagina;
 
