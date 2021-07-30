@@ -21,12 +21,12 @@ public class ArticoliServiceImpl implements ArticoliService{
 
     @Override
     public Articoli cercaArticolo(int idarticolo) {
-        return articoliRepository.findByArticolo(idarticolo);
+        return articoliRepository.findByIdarticolo(idarticolo);
     }
 
     @Override
     public List<Articoli> cercaArticoli(int idsito) {
-        return articoliRepository.findByArticoli(idsito);
+        return articoliRepository.findAllByArticoli(idsito);
     }
 
     @Override

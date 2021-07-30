@@ -58,7 +58,6 @@ public class ArticoliServiceTest {
         Pagine pagina = new Pagine();
 
         pagina.setIdpagina(0);
-        pagina.setArticolo(articolo);
         pagina.setCreato(new Date());
         pagina.setNumero(0);
 

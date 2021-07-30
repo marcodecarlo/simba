@@ -47,18 +47,18 @@ public class Articoli implements Serializable {
     @ManyToOne
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "IDSITO", referencedColumnName = "idsito")
-    @JsonBackReference
+    @JsonIgnore
     private Siti sito;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pagine", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "articolo", orphanRemoval = true)
     @JsonManagedReference
     private Set<Pagine> pagine = new HashSet<Pagine>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "ARTICOLI_CATEGORIE",
-        joinColumns = @JoinColumn(name = "IDARTICOLI"),
-        inverseJoinColumns = @JoinColumn(name = "IDCATEGORIE")
+        joinColumns = @JoinColumn(name = "IDARTICOLO"),
+        inverseJoinColumns = @JoinColumn(name = "IDCATEGORIA")
     )
     @JsonIgnore
     private List<Categorie> categorie = new ArrayList<>();

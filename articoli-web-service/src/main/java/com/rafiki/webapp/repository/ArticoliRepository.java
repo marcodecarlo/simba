@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface ArticoliRepository extends PagingAndSortingRepository<Articoli, String> {
 
-    Articoli findByArticolo(@Param("idarticolo") int idarticolo);
+    Articoli findByIdarticolo(@Param("idarticolo") int idarticolo);
 
     @Query(value = "SELECT * FROM ARTICOLI WHERE IDSITO = :idsito", nativeQuery = true)
-    List<Articoli> findByArticoli(@Param("idsito") int idsito);
+    List<Articoli> findAllByArticoli(@Param("idsito") int idsito);
 
     @Query(value = "SELECT * FROM ARTICOLI INNER JOIN PAGINE USING(IDARTICOLO) WHERE IDARTICOLO = :idarticolo", nativeQuery = true)
     List<Articoli> findByPagine(@Param("idarticolo") int idarticolo);
