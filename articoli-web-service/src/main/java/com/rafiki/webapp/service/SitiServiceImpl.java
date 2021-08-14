@@ -21,6 +21,7 @@ public class SitiServiceImpl implements SitiService{
     }
 
     @Override
+    @Transactional
     public void aggiungiSito(Siti sito) {
         sitiRepository.save(sito);
     }
