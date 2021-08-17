@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface PagineRepository extends PagingAndSortingRepository<Pagine, String> {
 
-    Pagine findByIdpagina(@Param("idarticolo") int idpagina);
+    Pagine findByIdpagina(@Param("idpagina") int idpagina);
 
 }
