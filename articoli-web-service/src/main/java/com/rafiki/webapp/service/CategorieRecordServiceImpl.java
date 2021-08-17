@@ -24,12 +24,14 @@ public class CategorieRecordServiceImpl implements CategorieRecordService {
     }
 
     @Override
+    @Transactional
     public void eliminaCategoriaRecord(CategorieRecord categorierecord) {
         categorieRecordRepository.delete(categorierecord);
     }
 
     @Override
+    @Transactional
     public void aggiungiCategoriaRecord(CategorieRecord categorierecord) {
-        categorieRecordRepository.delete(categorierecord);
+        categorieRecordRepository.save(categorierecord);
     }
 }

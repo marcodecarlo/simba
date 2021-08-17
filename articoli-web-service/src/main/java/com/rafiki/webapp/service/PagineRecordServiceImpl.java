@@ -23,12 +23,14 @@ public class PagineRecordServiceImpl implements PagineRecordService{
     }
 
     @Override
+    @Transactional
     public void eliminaPaginaRecord(PagineRecord paginarecord) {
         pagineRecordRepository.delete(paginarecord);
     }
 
     @Override
+    @Transactional
     public void aggiungiPaginaRecord(PagineRecord paginarecord) {
-        pagineRecordRepository.delete(paginarecord);
+        pagineRecordRepository.save(paginarecord);
     }
 }
